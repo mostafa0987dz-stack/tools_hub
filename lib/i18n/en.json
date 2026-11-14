@@ -4,7 +4,13 @@
   "searchPlaceholder": "Search tools...",
   "all": "All tools",
   "categoriesTitle": "Categories",
-  "categories": { "text": "Text", "image": "Images", "pdf": "PDF", "dev": "Developers", "other": "Other" },
+  "categories": {
+    "text": "Text",
+    "image": "Images",
+    "pdf": "PDF",
+    "dev": "Developers",
+    "other": "Other"
+  },
   "copy": "Copy result",
   "copied": "Copied ✓",
   "back": "All tools",
@@ -62,6 +68,40 @@
     "errUrl": "A URL starting with https:// is required.",
     "errDb": "Could not save. Check your Supabase setup and that the slug is unique.",
     "errPassword": "Wrong password.",
-    "noDb": "Supabase keys are not set in your environment file yet."
-  }
+    "noDb": "Supabase keys are not set in your environment file yet.",
+    "tabTools": "Tools",
+    "tabAds": "Ads",
+    "addAd": "Add a new ad",
+    "existingAds": "Saved ads",
+    "adName": "Ad name (for you only)",
+    "adType": "Ad type",
+    "adTypeBanner": "Image banner + link",
+    "adTypeAdsense": "Google AdSense",
+    "adTypeCode": "Custom code (HTML/JS)",
+    "adPlacement": "Placement",
+    "placements": {
+      "top": "Top of page",
+      "sidebar": "Sidebar (desktop)",
+      "grid": "Between tool cards",
+      "tool_bottom": "Below tool page"
+    },
+    "adLocale": "Target language",
+    "localeAll": "All languages",
+    "priority": "Priority (higher shows first)",
+    "imageUrl": "Image URL (https)",
+    "linkUrl": "Destination URL (https)",
+    "adsenseClient": "Publisher ID (ca-pub-XXXXXXXXXXXXXXXX)",
+    "adsenseSlot": "Ad unit slot ID (digits)",
+    "code": "Ad code",
+    "codeHeight": "Ad height in px (50-600)",
+    "codeHint": "Code runs inside an isolated sandboxed iframe to protect your site.",
+    "activate": "Activate",
+    "deactivate": "Pause",
+    "active": "Active",
+    "inactive": "Paused",
+    "adAdded": "Ad added.",
+    "errAd": "Invalid ad data. Check required fields (https links).",
+    "noAds": "No ads yet."
+  },
+  "ad": "Ad"
 }

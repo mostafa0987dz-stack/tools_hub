@@ -4,7 +4,13 @@
   "searchPlaceholder": "ابحث عن أداة...",
   "all": "كل الأدوات",
   "categoriesTitle": "التصنيفات",
-  "categories": { "text": "نصوص", "image": "صور", "pdf": "PDF", "dev": "مطورين", "other": "أخرى" },
+  "categories": {
+    "text": "نصوص",
+    "image": "صور",
+    "pdf": "PDF",
+    "dev": "مطورين",
+    "other": "أخرى"
+  },
   "copy": "نسخ النتيجة",
   "copied": "تم النسخ ✓",
   "back": "كل الأدوات",
@@ -62,6 +68,40 @@
     "errUrl": "الرابط مطلوب ويجب أن يبدأ بـ https://",
     "errDb": "تعذّر الحفظ. تأكد من إعدادات Supabase ومن عدم تكرار المعرّف.",
     "errPassword": "كلمة المرور غير صحيحة.",
-    "noDb": "لم يتم ضبط مفاتيح Supabase في ملف البيئة بعد."
-  }
+    "noDb": "لم يتم ضبط مفاتيح Supabase في ملف البيئة بعد.",
+    "tabTools": "الأدوات",
+    "tabAds": "الإعلانات",
+    "addAd": "إضافة إعلان جديد",
+    "existingAds": "الإعلانات المضافة",
+    "adName": "اسم الإعلان (للتمييز فقط)",
+    "adType": "نوع الإعلان",
+    "adTypeBanner": "بانر صورة + رابط",
+    "adTypeAdsense": "Google AdSense",
+    "adTypeCode": "كود مخصص (HTML/JS)",
+    "adPlacement": "مكان الظهور",
+    "placements": {
+      "top": "أعلى الصفحة",
+      "sidebar": "الشريط الجانبي (سطح المكتب)",
+      "grid": "بين كروت الأدوات",
+      "tool_bottom": "أسفل صفحة الأداة"
+    },
+    "adLocale": "اللغة المستهدفة",
+    "localeAll": "كل اللغات",
+    "priority": "الأولوية (الأعلى يظهر أولاً)",
+    "imageUrl": "رابط الصورة (https)",
+    "linkUrl": "رابط الوجهة (https)",
+    "adsenseClient": "معرّف الناشر (ca-pub-XXXXXXXXXXXXXXXX)",
+    "adsenseSlot": "معرّف الوحدة الإعلانية (أرقام)",
+    "code": "كود الإعلان",
+    "codeHeight": "ارتفاع الإعلان بالبكسل (50-600)",
+    "codeHint": "يُعرض الكود داخل إطار معزول (sandbox) لحماية موقعك.",
+    "activate": "تفعيل",
+    "deactivate": "إيقاف",
+    "active": "مفعّل",
+    "inactive": "متوقف",
+    "adAdded": "تمت إضافة الإعلان.",
+    "errAd": "بيانات الإعلان غير صالحة. تحقق من الحقول المطلوبة (الروابط https).",
+    "noAds": "لا توجد إعلانات بعد."
+  },
+  "ad": "إعلان"
 }
