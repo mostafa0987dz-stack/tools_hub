@@ -53,3 +53,21 @@ supabase/schema.sql    جدول الأدوات
 
 - مصادقة الأدمن بسيطة (كلمة مرور + كوكي HttpOnly). للإنتاج الجاد انتقل إلى Supabase Auth.
 - روابط الأدوات تُقبل بـ https فقط، والـ iframe يعمل داخل sandbox.
+
+## النشر على Cloudflare Workers
+
+```bash
+npm install
+npx wrangler login
+npm run deploy
+```
+- ضع المتغيرات `NEXT_PUBLIC_*` في `.env.local` قبل الأمر (تُدمج وقت البناء).
+- الأسرار: `npx wrangler secret put SUPABASE_SERVICE_ROLE_KEY` وكذلك `ADMIN_PASSWORD` و `ADMIN_SESSION_SECRET`.
+- معاينة محلية: انسخ `.dev.vars.example` إلى `.dev.vars` ثم `npm run preview`.
+
+## الإعلانات (v2)
+
+1. أعد تشغيل `supabase/schema.sql` في SQL Editor (آمن، ينشئ جدول `ads` فقط إن لم يوجد).
+2. من `/ar/admin?tab=ads` أضف إعلاناً: بانر (صورة + رابط) / Google AdSense / كود مخصص.
+3. أماكن الظهور: أعلى الصفحة، الشريط الجانبي، بين الكروت (إعلان بعد كل 6 أدوات)، أسفل صفحة الأداة.
+4. `/ads.txt` يُولَّد تلقائياً من إعلانات AdSense المفعّلة.
