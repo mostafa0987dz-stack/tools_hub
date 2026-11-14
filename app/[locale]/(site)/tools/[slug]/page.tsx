@@ -2,16 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink } from "lucide-react";
+import { AdSlot } from "@/components/AdSlot";
 import { Icon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { Button } from "@/components/ui/button";
 import { InternalTool } from "@/components/tools/internal";
+import { getActiveAds, pickOne } from "@/lib/ads";
 import { getDict, isLocale } from "@/lib/i18n/config";
 import { toolLd } from "@/lib/jsonld";
 import { getTool } from "@/lib/tools";
 import { localized } from "@/lib/utils";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 type P = { params: Promise<{ locale: string; slug: string }> };
 
@@ -34,11 +36,13 @@ export default async function ToolPage({ params }: P) {
   if (!tool) notFound();
 
   const t = getDict(locale);
+  const bottomAd = pickOne(await getActiveAds(), locale, "tool_bottom");
   const name = localized(tool, locale, "name");
   const desc = localized(tool, locale, "description");
   const safeUrl = tool.url && /^https:\/\//i.test(tool.url) ? tool.url : null;
 
   return (
+    <>
     <article className="glass p-5 md:p-8">
       <JsonLd data={toolLd(tool, locale, name, desc, t.appName)} />
 
@@ -78,5 +82,7 @@ export default async function ToolPage({ params }: P) {
         </Button>
       )}
     </article>
+    <AdSlot ad={bottomAd} label={t.ad} className="mt-4" />
+    </>
   );
 }
