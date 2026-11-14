@@ -3,6 +3,8 @@ import { getTools } from "@/lib/tools";
 import { locales } from "@/lib/i18n/config";
 import { siteUrl } from "@/lib/jsonld";
 
+export const dynamic = "force-dynamic";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const tools = await getTools();
   const base = siteUrl();
