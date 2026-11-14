@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-from: #e0f2f1;
+  --bg-via: #ede7f6;
+  --bg-to: #f5f5f7;
+}
+.dark {
+  --bg-from: #0b1f24;
+  --bg-via: #1a1533;
+  --bg-to: #101014;
+}
+
+@layer base {
+  html { color-scheme: light; }
+  html.dark { color-scheme: dark; }
+  body {
+    @apply text-slate-800 dark:text-slate-100 antialiased;
+    background: linear-gradient(135deg, var(--bg-from), var(--bg-via), var(--bg-to));
+    background-attachment: fixed;
+    min-height: 100vh;
+    transition: background 0.4s ease, color 0.4s ease;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/60 dark:bg-white/5 backdrop-blur-xl
+           border border-white/50 dark:border-white/10
+           rounded-2xl shadow-[0_8px_32px_rgba(20,184,166,0.12)]
+           transition-all duration-300;
+  }
+  .glass-hover {
+    @apply hover:bg-white/80 dark:hover:bg-white/10 hover:-translate-y-1
+           hover:shadow-[0_12px_40px_rgba(139,92,246,0.2)];
+  }
+  .glass-input {
+    @apply bg-white/50 dark:bg-white/5 backdrop-blur-md
+           border border-white/60 dark:border-white/10 rounded-xl
+           px-4 py-2.5 outline-none focus:ring-2 focus:ring-teal-400/60
+           placeholder:text-slate-400 w-full;
+  }
+  .glass-btn {
+    @apply bg-white/50 dark:bg-white/10 backdrop-blur border border-white/60 dark:border-white/10
+           hover:bg-white/80 dark:hover:bg-white/20;
+  }
+  .btn-primary {
+    @apply bg-gradient-to-r from-teal-500 to-purple-500 text-white rounded-xl px-5 py-2.5
+           font-medium shadow-lg hover:opacity-90 active:scale-95 transition;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
