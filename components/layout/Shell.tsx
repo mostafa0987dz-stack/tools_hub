@@ -4,10 +4,12 @@ import { useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, Wrench, X } from "lucide-react";
+import { AdSlot } from "@/components/AdSlot";
 import { Icon } from "@/components/Icon";
 import { Button } from "@/components/ui/button";
 import { categories } from "@/lib/categories";
 import { isRtl, type Dict, type Locale } from "@/lib/i18n/config";
+import type { Ad } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { LangToggle } from "./LangToggle";
 import { ThemeToggle } from "./ThemeToggle";
@@ -54,16 +56,19 @@ function Brand({ locale, name }: { locale: Locale; name: string }) {
   );
 }
 
-export function Shell({ locale, t, children }: { locale: Locale; t: Dict; children: React.ReactNode }) {
+export function Shell({
+  locale, t, children, topAd = null, sidebarAd = null,
+}: { locale: Locale; t: Dict; children: React.ReactNode; topAd?: Ad | null; sidebarAd?: Ad | null }) {
   const [open, setOpen] = useState(false);
   const rtl = isRtl(locale);
 
   return (
     <div className="mx-auto flex max-w-[1600px] gap-4 p-3 md:p-4">
       {/* Desktop sidebar */}
-      <aside className="glass sticky top-4 hidden h-[calc(100vh-2rem)] w-64 shrink-0 flex-col gap-6 p-4 lg:flex">
+      <aside className="glass sticky top-4 hidden h-[calc(100vh-2rem)] w-64 shrink-0 flex-col gap-6 overflow-y-auto p-4 lg:flex">
         <Brand locale={locale} name={t.appName} />
         <SidebarNav locale={locale} t={t} />
+        <div className="mt-auto"><AdSlot ad={sidebarAd} label={t.ad} /></div>
       </aside>
 
       {/* Mobile drawer */}
@@ -107,7 +112,10 @@ export function Shell({ locale, t, children }: { locale: Locale; t: Dict; childr
             <ThemeToggle label={t.toggleTheme} />
           </div>
         </header>
-        <main className="min-w-0">{children}</main>
+        <main className="min-w-0 space-y-4">
+          <AdSlot ad={topAd} label={t.ad} />
+          {children}
+        </main>
       </div>
     </div>
   );
